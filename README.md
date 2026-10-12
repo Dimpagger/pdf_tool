@@ -84,6 +84,23 @@ for fs in 26 30 34; do
 done
 ```
 
+### Supernote Manta 使用示例
+
+```bash
+# Manta 默认配置 (10.7" 全屏, 30pt)
+python3 pdf2largeprint.py "The Secret of Psalm 46.pdf" --device manta -o 大字-manta.pdf
+
+# 阅读+批注场景: 字号加大、行距放宽, 给手写批注留空间
+python3 pdf2largeprint.py "The Secret of Psalm 46.pdf" --device manta \
+    --font-size 32 --line-height 1.9 --margin-y 45 -o 大字-manta-批注版.pdf
+
+# 对照调字号 (Manta 上 26/30/34pt 一次生成, 拷进设备挑一档)
+for fs in 26 30 34; do
+  python3 pdf2largeprint.py "The Secret of Psalm 46.pdf" \
+      --device manta --font-size $fs -o "大字-manta-${fs}pt.pdf" --quiet
+done
+```
+
 ## 参数
 
 | 参数 | 默认 | 说明 |
@@ -109,6 +126,7 @@ done
 | `7.8` | 337×449 | 24pt — Kobo Aura ONE / Boox Nova 7.8" |
 | `10.2` | 446×595 | 30pt — Kindle Scribe 10.2" |
 | `10.3` | 445×594 | 30pt — Boox Note / Kobo Elipsa / 掌阅 Smart 10.3" |
+| `10.7` / `manta` | 461×614 | 30pt — Supernote Manta 10.7" (1920×2560 @300PPI) |
 | `13.3` | 574×765 | 32pt — Boox Max / Sony DPT 13.3" |
 
 ## 设计要点（踩坑经验）
