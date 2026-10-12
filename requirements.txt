@@ -1,0 +1,3 @@
+# pdf2largeprint 依赖
+# Python 3.10+
+pymupdf>=1.27

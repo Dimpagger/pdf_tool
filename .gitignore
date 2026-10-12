@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+# 工具输出
+*-大字版.pdf
+/tests/out/
